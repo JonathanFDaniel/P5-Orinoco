@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Orinoco.fr : Le site de vente en ligne</title>
+</head>
+<body>
+    <div class="content">
+        <nav>
+            <i class="fas fa-shopping-cart"></i>
+            <div class="nav-left">
+                <h1 class="title-site">Orinoco</h1>
+                <h2 class="subtitle">Le site de vente en ligne</h2>
+            </div>
+            <div class="nav-right">
+                <ul>
+                    <li><a title="accueil" href="index.html">Accueil</a></li>
+                    <li><a title="accueil" href="index.html">Meilleures Ventes</a></li>
+                    <li><a title="accueil" href="index.html">Dernières Nouveautés</a></li>
+                    <li><a title="panier" href="panier.html">Identifiez-vous</a></li>
+                    <li><a title="panier" href="panier.html">Panier</a></li>
+                </ul>
+            </div>
+        </nav>
+        <section class="panier-section">
+            <div class="panier">panier</div>
+
+                <!--image et information sur le produit-->
+        </section>
+        <h1>Créer un compte</h1>
+        <section class="form-section">
+            <form action="commande.html" class="form" id="inscription" method="post">
+                <input type="text" name="pseudo" placeholder="pseudo" id="pseudo">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="mdp" placeholder="Mot de passe" id="password">
+                <input type="password" name="mdp-confirmation" placeholder="Mot de passe confirmation" id="password2">
+                <p class="message-erreur" id="message-erreur"></p> 
+                <input type="submit" class="button-style" value="valider la commande">
+            </form>
+        </section>
+        <footer>
+            <p>Conditions générales de vente</p>
+            <p>Contact</p>
+        </footer>  
+    </div>
+    <script src="https://kit.fontawesome.com/470ee438b3.js" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <script src="localstorage.js"></script>
+</body>
+</html>

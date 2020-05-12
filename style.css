@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+.content {
+    min-height: 100%;
+    position: relative;
+}
+
+/*header*/
+
+nav, footer {
+    color:  #343a40;
+    background-color: #f3e9f1;
+}
+nav {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.fa-shopping-cart {
+    font-size: 5em;
+    background-image: linear-gradient(to right, #e68a09,#8f5bfe) ;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 0 5px 0 5px;
+}
+.nav-left {
+    display: flex;
+    flex-direction: column;
+}
+.title-site {
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 3em;
+    margin: 0;
+}
+.subtitle {
+    margin: 0;
+}
+.nav-right > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/*sur toutes les pages*/
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+li {
+    list-style: none;
+    margin-right: 20px;
+    font-size: 1.2em;
+}
+.button-style {
+    font-size: 1.2em;
+    padding: 10px 10px;
+    color: #f3e9f1;
+    background-color: #8f5bfe;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 5px #8f5bfe9f;
+    cursor: pointer;
+    outline: none;
+}
+.button-style:hover {
+    transform: translate();
+    box-shadow: 0 3px #8f5bfe9f;
+}
+.button-style:active {
+    transform: translate();
+    box-shadow: 0 1px #8f5bfe9f;
+}
+/*index*/
+.home-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    width: 100;
+    height: 300px;
+    border: 2px solid black; 
+}
+.image {
+    width: 450px;
+	height: auto;
+}
+/*produit*/
+.product-section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    align-items: center;
+}
+.product {
+    width: 600px;
+    height: 300px;
+    border: black solid 1px;
+}
+/*panier*/
+.panier-section {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px 0 20px;
+    border: 2px solid black;
+}
+.panier {
+    height: 200px;
+}
+.form-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 20px 0 20px;
+    border: 2px solid black;
+    padding: 10px;
+}
+.form input {
+    display: block;
+    margin-bottom: 10px;
+    border: 2px solid grey;
+    border-radius: 4px;
+    padding: 2px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.5s ease;
+}
+.form input:focus {
+    border: 1px solid grey;
+    box-shadow: 3px 3px #e68a09;
+}
+.message-erreur {
+    color: red;
+    width: 400px;
+    height: 20px;
+}
+/*commande*/
+.commande-section {
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-around;
+    align-items: center;
+}
+.ordered {
+    width: 700px;
+    height: 300px;
+    padding: 10px;
+    border: 1px solid black;
+}
+.ordered-button {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+/*footer*/
+footer {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
