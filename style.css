@@ -90,9 +90,10 @@ li {
     height: 300px;
     border: 2px solid black; 
 }
-.image {
+.imageURL {
+    border: 1px solid black;
     width: 450px;
-	height: auto;
+	height: 300px;
 }
 /*produit*/
 .product-section {

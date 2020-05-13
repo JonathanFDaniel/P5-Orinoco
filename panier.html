@@ -24,10 +24,16 @@
                 </ul>
             </div>
         </nav>
-        <section class="panier-section">
-            <div class="panier">panier</div>
-
-                <!--image et information sur le produit-->
+        <section>
+            <div action="panier.html" class="home-section" id="home-section">
+                <a title="Caméras vintage" href="produit.html">
+                <p id="result"></p>
+                <p id="name"></p>
+                <p id="price"></p>
+                <p id="description"></p></a>
+                <img id="imageURL" class="imageURL">
+                <a title="panier.html"></a><input class="button-style" type="submit" value="ajouter au panier"></a><br>
+            </div>
         </section>
         <h1>Créer un compte</h1>
         <section class="form-section">
@@ -46,6 +52,7 @@
         </footer>  
     </div>
     <script src="https://kit.fontawesome.com/470ee438b3.js" crossorigin="anonymous"></script>
+    <script src="product-information.js"></script>
     <script src="form-validation.js"></script>
     <script src="localstorage.js"></script>
 </body>
