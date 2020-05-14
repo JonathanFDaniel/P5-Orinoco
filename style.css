@@ -90,7 +90,7 @@ li {
     height: 300px;
     border: 2px solid black; 
 }
-.imageURL {
+.image {
     border: 1px solid black;
     width: 450px;
 	height: 300px;
@@ -104,8 +104,7 @@ li {
 }
 .product {
     width: 600px;
-    height: 300px;
-    border: black solid 1px;
+    height: auto;
 }
 /*panier*/
 .panier-section {
