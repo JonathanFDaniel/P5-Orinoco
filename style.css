@@ -7,6 +7,7 @@ html, body {
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
 }
 .content {
     min-height: 100%;
@@ -42,14 +43,79 @@ nav {
     margin: 0;
 }
 .subtitle {
+    font-size: 1em;
     margin: 0;
 }
 .nav-right > ul {
     display: flex;
+    font-weight: 600;
     flex-direction: row;
     justify-content: space-between;
+} 
+ul a {
+    color:  #343a40;
+}
+.toggle-button {
+    height: 30px;
+    width: 30px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+    display: none;
+}
+.toggle-button span {
+    height: 3px;
+    background-color: #8f5bfe;
+    width: 100%;
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
+.toggle-button span:before {
+    content: "";
+    height: 3px;
+    background-color: #8f5bfe;
+    width: 100%;
+    position: absolute;
+    top: -10px;
+    left: 0;
+}
+.toggle-button span:after {
+    content: "";
+    height: 3px;
+    background-color: #8f5bfe;
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+/*navigator*/
+.menu {
+    position: relative;
+    flex-direction: column;
+    text-align: center;
+    float: right;
+    height: 400px;
+    background-color: #8f5bfe;
+    border-radius: 12px;
+    width: 200px; 
+    display: none;
+}
+.menu a {
+    display: block;
+    margin-top: 35px;
+    color: #f3e9f1;
+}
+.little-nav {
+    margin-right: -200px;
+    transition-duration: 0.2s;
+}
+.little-nav-open {
+    margin: 0;
+    transition-duration: 0.2s;
 }
 /*sur toutes les pages*/
+
 a {
     cursor: pointer;
     text-decoration: none;
@@ -83,15 +149,16 @@ li {
 .home-section {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
     margin: 20px;
     padding: 10px;
     width: 100;
     height: 300px;
-    border: 2px solid black; 
 }
 .image {
     border: 1px solid black;
+    margin: 0 20px 20px 0;
     width: 450px;
 	height: 300px;
 }
@@ -163,12 +230,41 @@ li {
 }
 /*footer*/
 footer {
+    position: fixed;
+    margin-top: 20px;
     height: 40px;
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    position: absolute;
     bottom: 0px;
     left: 0px;
+}
+/*media queries*/
+@media screen and (max-width: 1090px) {
+    .nav-right {
+        display: none; 
+    }
+    .toggle-button {
+        display: block;
+    }
+    .menu {
+        display: block;
+        position: absolute;
+        right: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+    .title-site {
+        font-size: 2em;
+    }
+    .subtitle {
+        font-size: 0.8em;
+    }
+    footer {
+        font-size: 0.8em;
+    }
+    .fa-shopping-cart {
+        font-size: 3em;
+    }
 }
