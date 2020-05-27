@@ -55,6 +55,28 @@ nav {
 ul a {
     color:  #343a40;
 }
+#add-basket {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+}
+#add-basket a {
+    font-size: 1.4em;
+    font-weight: 700;
+}
+#add-product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    color: #f3e9f1;
+    font-size: 0.9em;
+    font-weight: 700;
+    background-color: #e68a09;
+    border-radius: 100%;
+}
 .toggle-button {
     height: 30px;
     width: 30px;

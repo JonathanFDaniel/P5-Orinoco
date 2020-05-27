@@ -1,10 +1,18 @@
-document.querySelector(".menu-nav").innerHTML += `
+document.querySelector(".nav-right").innerHTML += `
 <ul>
 <li><a title="accueil" href="index.html">Accueil</a></li>
 <li><a title="accueil" href="index.html">Meilleures Ventes</a></li>
 <li><a title="accueil" href="index.html">Dernières Nouveautés</a></li>
 <li><a title="panier" href="panier.html">Identifiez-vous</a></li>
-<li><a title="panier" href="panier.html">Panier</a></li>
+</ul>
+`;
+
+document.querySelector(".menu").innerHTML += `
+<ul>
+<li><a title="accueil" href="index.html">Accueil</a></li>
+<li><a title="accueil" href="index.html">Meilleures Ventes</a></li>
+<li><a title="accueil" href="index.html">Dernières Nouveautés</a></li>
+<li><a title="panier" href="panier.html">Identifiez-vous</a></li>
 </ul>
 `;
 

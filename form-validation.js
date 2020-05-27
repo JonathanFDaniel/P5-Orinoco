@@ -30,3 +30,4 @@ document.getElementById("inscription").addEventListener("submit", function (e) {
         alert('Formulaire envoyé !');
     }
 });
+

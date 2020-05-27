@@ -1,12 +1,3 @@
-/*<div class="home-section" id="home-section">
-<a title="Caméras vintage" href="produit.html">
-<p class="result"></p>
-<p class="name"></p>
-<p class="price"></p>
-<p class="description"></p></a>
-<img class="imageURL">
-<a href="panier.html"><input class="button-style" type="submit" value="ajouter au panier"></a><br>
-</div>*/
 class ProductInformation {
     constructor (id, name, price, description, imageUrl) {
         this.id = id;
@@ -16,11 +7,6 @@ class ProductInformation {
         this.imageUrl = imageUrl;
     }
     showProduct () {
-       /* document.getElementById('result').innerHTML = this.id;
-        document.getElementById('name').innerHTML = this.name;
-        document.getElementById('price').innerHTML = this.price;
-        document.getElementById('description').innerHTML = this.description;
-        document.getElementById('imageURL').src = this.imageUrl;*/
         document.getElementById('productListe').innerHTML += `
             <div class="home-section">
             <a title="Caméras vintage" href="produit.html">
@@ -29,7 +15,7 @@ class ProductInformation {
             <p class="price">${this.price}</p>
             <p class="description">${this.description}</p></a>
             <img class="image" src="${this.imageUrl}">
-            <a href="panier.html"><input class="button-style" type="submit" value="ajouter au panier"></a><br>
+            <input class="button-style" type="submit" value="ajouter au panier"><br>
             </div>`;
     }
 }
@@ -54,14 +40,3 @@ let httpRequest = new XMLHttpRequest();
 
     httpRequest.open('GET', 'http://localhost:3000/api/cameras', true);
     httpRequest.send();
-
-
-
-
-    /*document.querySelector('#name').innerText =  `${camera.name}`;
-    document.querySelector('#price').innerText =  `${camera.price} €`;
-    document.querySelector('#description').innerText =  `${camera.description}`;
-
-document.getElementById('home-section').addEventListener('submit', function() {
-    
-});*/
