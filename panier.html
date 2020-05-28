@@ -33,15 +33,18 @@
                 <a title="panier.html"></a><input class="button-style" type="submit" value="ajouter au panier"></a><br>
             </div>
         </section>
-        <h1>Créer un compte</h1>
+        <h1>Valider votre commande</h1>
         <section class="form-section">
             <form action="commande.html" class="form" id="inscription" method="post">
                 <input type="text" name="pseudo" placeholder="pseudo" id="pseudo">
-                <input type="email" name="email" placeholder="Email">
-                <input type="password" name="mdp" placeholder="Mot de passe" id="password">
+                <input type="email" name="email" placeholder="Email" id="email">
+                <div class="message-security">
+                    <input type="password" name="mdp" placeholder="Mot de passe" id="password">
+                    <span id="security"></span>
+                </div>
                 <input type="password" name="mdp-confirmation" placeholder="Mot de passe confirmation" id="password2">
                 <p class="message-erreur" id="message-erreur"></p> 
-                <input type="submit" class="button-style" value="valider la commande">
+                <input type="submit" class="button-style" id="button" value="valider la commande">
             </form>
         </section>
         <footer>

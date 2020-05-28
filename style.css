@@ -227,6 +227,13 @@ li {
     border: 1px solid grey;
     box-shadow: 3px 3px #e68a09;
 }
+.message-security {
+    display: flex;
+    flex-direction: row;
+}
+#security {
+    margin-left: 10px;
+}
 .message-erreur {
     color: red;
     width: 400px;
