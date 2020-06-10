@@ -21,19 +21,19 @@
         </nav>
 
         <div class="menu little-nav"></div>
+        
+        <h3>Votre panier</h3>
+        
+        <section class="panier-section">
 
-        <section>
-            <div action="panier.html" class="home-section" id="home-section">
-                <a title="Caméras vintage" href="produit.html">
-                <p id="result"></p>
-                <p id="name"></p>
-                <p id="price"></p>
-                <p id="description"></p></a>
-                <img id="imageURL" class="imageURL">
-                <a title="panier.html"></a><input class="button-style" type="submit" value="ajouter au panier"></a><br>
-            </div>
+            <h4 id="blank"></h4>
+
+            <div id="commande"></div>
+
         </section>
-        <h1>Valider votre commande</h1>
+
+        <h3>Valider votre commande</h3>
+
         <section class="form-section">
             <form action="commande.html" class="form" id="inscription" method="post">
                 <input type="text" name="pseudo" placeholder="pseudo" id="pseudo">
@@ -54,6 +54,7 @@
     </div>
     <script src="https://kit.fontawesome.com/470ee438b3.js" crossorigin="anonymous"></script>
     <script src="navigateur.js"></script>
+    <script src="panier.js"></script>
     <script src="form-validation.js"></script>
 </body>
 </html>

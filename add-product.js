@@ -1,7 +1,7 @@
 
 let addProductValue = 0;
 
-document.getElementById('productListe').addEventListener("click", () => {
+document.getElementById('info').addEventListener("click", () => {
     if (addProductValue === 0) {
         let addProductElt = document.createElement('span');
         addProductElt.id = "add-product";

@@ -138,6 +138,13 @@ ul a {
 }
 /*sur toutes les pages*/
 
+h3 {
+    font-size: 1.4em;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid gray;
+}
 a {
     cursor: pointer;
     text-decoration: none;
@@ -158,6 +165,11 @@ li {
     box-shadow: 0 5px #8f5bfe9f;
     cursor: pointer;
     outline: none;
+}
+#delete {
+    background-color: #8f5bfe;
+    border: none;
+    font-size: 0.5em;
 }
 .button-style:hover {
     transform: translate();
@@ -184,6 +196,12 @@ li {
     width: 450px;
 	height: 300px;
 }
+.image2 {
+    border: 1px solid black;
+    margin: 0 20px 20px 0;
+    width: 200px;
+	height: auto;
+}
 /*produit*/
 .product-section {
     display: flex;
@@ -195,12 +213,46 @@ li {
     width: 600px;
     height: auto;
 }
+.product-list {
+    padding: 10px;
+    margin: 50px 50px 70px 50px;
+    box-shadow: 1px 1px 6px silver;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}  
+.product-image {
+    width: 400px;
+    height: auto;
+}
+.product-description {
+    width: 800px;
+}
+
 /*panier*/
+
+#blank {
+    text-align: center;
+    font-size: 1.2em;
+}
+.recap-table {
+    text-align: center;
+    border-collapse: collapse;
+    width: 1000px;
+    margin: 50px auto;
+}
+.recap-th-thead, .recap-td-tbody, .result {
+    border: lightgray solid 2px;
+    color:#8f5bfe;
+    font-size: 1.5em;
+    margin: 0;
+}
 .panier-section {
     display: flex;
     flex-direction: column;
     margin: 20px 20px 0 20px;
-    border: 2px solid black;
 }
 .panier {
     height: 200px;
@@ -209,8 +261,7 @@ li {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 20px 20px 0 20px;
-    border: 2px solid black;
+    margin: 0px 20px 70px 20px;
     padding: 10px;
 }
 .form input {
@@ -242,18 +293,20 @@ li {
 /*commande*/
 .commande-section {
     display: flex;
-    margin-top: 30px;
+    flex-wrap: wrap;
+    margin-top: 50px;
     justify-content: space-around;
     align-items: center;
 }
 .ordered {
+    border-left: solid gray 3px;
     width: 700px;
-    height: 300px;
-    padding: 10px;
-    border: 1px solid black;
+    height: 200px;
+    padding: 20px;
 }
 .ordered-button {
     margin-top: 80px;
+    margin-bottom: 70px;
     display: flex;
     justify-content: center;
 }
