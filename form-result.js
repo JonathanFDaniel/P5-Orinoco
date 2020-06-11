@@ -1,9 +1,11 @@
 let getTotalPrise = localStorage.getItem('totalPrise');
-let getPseudo = localStorage.getItem('pseudo');
-let getEmail = localStorage.getItem('email');
+let getForm = JSON.parse(localStorage.getItem('form'));
 
-document.getElementById('confirmeName').innerHTML = "Merci " + getPseudo + ".";
+document.getElementById('confirmeName').innerHTML = "Merci " + getForm[0].name + ".";
 
-document.getElementById('pseudo').innerHTML = "<strong>Pseudo : </strong>" + getPseudo;
-document.getElementById('email').innerHTML = "<strong>Email : </strong>" + getEmail;
-document.getElementById('totalPrise').innerHTML = "<strong>Prix : </strong>" + getTotalPrise;
+document.getElementById('name').innerHTML = "<strong>Prénom, Nom : </strong>" + getForm[0].surname + " " + getForm[0].name;
+document.getElementById('adress').innerHTML = "<strong>Adresse : </strong>" + getForm[0].adress;
+document.getElementById('city').innerHTML = "<strong>Ville : </strong>" + getForm[0].city;
+document.getElementById('email').innerHTML = "<strong>Email : </strong>" + getForm[0].email;
+
+document.getElementById('totalPrise').innerHTML = "<strong>Prix : </strong>" + getTotalPrise; 

@@ -1,6 +1,12 @@
+class infoTable {
+    constructor(quantity) {
+        this.quantity = quantity;
+    }
+}
+
 let arrayProduct = [];
 
-//let arrayQuantity = [];
+let arrayQuantity = [];
 
 function showProduct(infosProduct) {
     
@@ -18,12 +24,13 @@ function showProduct(infosProduct) {
         divElt2.className = 'div_product-list'
 
             const productNameElt = document.createElement('h4')
-            //productNameElt.className = "productName";
             productNameElt.innerHTML = infosProduct.name;
 
             const idElt = document.createElement('p')
-            //idElt.className = "_id";
             idElt.innerHTML = "<strong>Référence : </strong>" + infosProduct._id;
+
+            const lensesElt = document.createElement('p')
+            lensesElt.innerHTML = "<strong>lentille : </strong>" + infosProduct.lenses;
 
             const descriptionElt = document.createElement('p')
             descriptionElt.className = "product-description";
@@ -33,7 +40,6 @@ function showProduct(infosProduct) {
         divElt3.className = 'div_product-list'
 
             const priceElt = document.createElement('p');
-            //priceElt.className = "price";
             priceElt.innerHTML = 'prix : ' + infosProduct.price + ' €';
 
             const quantityElt = document.createElement('div');
@@ -51,6 +57,7 @@ function showProduct(infosProduct) {
     divElt1.appendChild(productImageElt);
     divElt2.appendChild(productNameElt);
     divElt2.appendChild(idElt);
+    divElt2.appendChild(lensesElt);
     divElt2.appendChild(descriptionElt);
     divElt3.appendChild(priceElt);
     divElt3.appendChild(quantityElt);
@@ -64,12 +71,18 @@ function showProduct(infosProduct) {
     document.getElementById('info').appendChild(liElt)
 
     buttonElt.addEventListener('click', () => {
+
         quantityElt.textContent ++;
+        /*quantity1 = 5;
+        const newInfoTable1 = new infoTable(
+            quantity1 
+        ) */
+        //console.log(newInfoTable1)
         //let totalPrices = document.getElementsByClassName(totalPrice);
         //totalPrices.textContent += Number(infosProduct.price)
         arrayProduct.push(infosProduct);
-        //arrayProduct.push(quantityElt);
-        console.log(infosProduct);
+        //arrayQuantity.push(newInfoTable1); 
+        //console.log(infosProduct);
     }); 
 }
 

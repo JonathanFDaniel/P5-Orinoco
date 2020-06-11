@@ -157,6 +157,6 @@ if ( result === null ) {
     }  
     let amount = document.getElementsByClassName('amount');  
     amount[0].innerHTML = totalAmount + " €";
-    let totalPrise = amount[0].innerHTML;
-    localStorage.setItem('totalPrise', totalPrise);
+    /*let totalPrise = amount[0].innerHTML;
+    localStorage.setItem('totalPrise', totalPrise); */
 }  

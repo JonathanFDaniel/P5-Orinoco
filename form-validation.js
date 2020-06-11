@@ -1,3 +1,16 @@
+class infoForm {
+    constructor(surname, name, adress, city, email) {
+        this.surname = surname;
+        this.name = name;
+        this.adress = adress;
+        this.city = city;
+        this.email = email;
+    }
+}
+let tableForm = [];
+
+let tableJson = [];
+
 document.getElementById("password").addEventListener("input", (e) => {
     let mdp = e.target.value;
     let longueurMdp = "faible";
@@ -37,7 +50,6 @@ document.getElementById("inscription").addEventListener("submit", function (e) {
     let inputs = this;
 
     for (let i = 0; i < inputs.length; i++) {
-        console.log(inputs);
         if (!inputs[i].value) {
             erreur = "Veuillez renseigner tous les champs !";
             break;
@@ -53,9 +65,21 @@ document.getElementById("inscription").addEventListener("submit", function (e) {
 });
 
 document.getElementById('button').addEventListener('click', () => {
-    let pseudo = document.getElementById('pseudo').value;
-    let email = document.getElementById('email').value;
 
-    localStorage.setItem('pseudo', pseudo);
-    localStorage.setItem('email', email);
+    let surname1 = document.getElementById('surname').value;
+    let name1 = document.getElementById('name').value;
+    let adress1 = document.getElementById('adress').value;
+    let city1 = document.getElementById('city').value;
+    let email1 = document.getElementById('email').value;
+
+    let newinfoForm = new infoForm (
+        surname1,
+        name1,
+        adress1,
+        city1,
+        email1
+    )
+    tableForm.push(newinfoForm);
+    let jsonTable = JSON.stringify(tableForm);
+    localStorage.setItem('form', jsonTable);
 });

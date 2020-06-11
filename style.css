@@ -299,7 +299,6 @@ li {
     align-items: center;
 }
 .ordered {
-    border-left: solid gray 3px;
     width: 700px;
     height: 200px;
     padding: 20px;
