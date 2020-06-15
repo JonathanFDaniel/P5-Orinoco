@@ -3,7 +3,7 @@ document.querySelector(".nav-right").innerHTML += `
 <li><a title="accueil" href="index.html">Accueil</a></li>
 <li><a title="accueil" href="index.html">Meilleures Ventes</a></li>
 <li><a title="accueil" href="index.html">Dernières Nouveautés</a></li>
-<li><a title="panier" href="panier.html">Identifiez-vous</a></li>
+<li><a title="shopping-basket" href="shopping-basket.html">Identifiez-vous</a></li>
 </ul>
 `;
 
@@ -12,7 +12,7 @@ document.querySelector(".menu").innerHTML += `
 <li><a title="accueil" href="index.html">Accueil</a></li>
 <li><a title="accueil" href="index.html">Meilleures Ventes</a></li>
 <li><a title="accueil" href="index.html">Dernières Nouveautés</a></li>
-<li><a title="panier" href="panier.html">Identifiez-vous</a></li>
+<li><a title="shopping-basket" href="shopping-basket.html">Identifiez-vous</a></li>
 </ul>
 `;
 

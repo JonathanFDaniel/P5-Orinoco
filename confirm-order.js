@@ -9,8 +9,6 @@ class infoForm {
 }
 let tableForm = [];
 
-let tableJson = [];
-
 document.getElementById("password").addEventListener("input", (e) => {
     let mdp = e.target.value;
     let longueurMdp = "faible";

@@ -24,11 +24,11 @@
         
         <h3>Votre panier</h3>
         
-        <section class="panier-section">
+        <section class="shopping-basket-section">
 
             <h4 id="blank"></h4>
 
-            <div id="commande"></div>
+            <div id="ordered"></div>
 
         </section>
 
@@ -36,7 +36,7 @@
 
         <section class="form-section">
 
-            <form class="form" id="inscription" method="post">
+            <form action="ordered.html" class="form" id="inscription" method="post">
             
                 <input type="text" name="surname" placeholder="Prénom" id="surname">
                 <input type="text" name="name" placeholder="Nom" id="name">
@@ -52,6 +52,7 @@
                 <input type="submit" class="button-style" id="button" value="valider la commande">
 
             </form>
+            
         </section>
         <footer>
             <p>Conditions générales de vente</p>
@@ -59,8 +60,8 @@
         </footer>  
     </div>
     <script src="https://kit.fontawesome.com/470ee438b3.js" crossorigin="anonymous"></script>
-    <script src="navigateur.js"></script>
-    <script src="panier.js"></script>
-    <script src="form-validation.js"></script>
+    <script src="nav.js"></script>
+    <script src="shopping-basket.js"></script>
+    <script src="confirm-order.js"></script>
 </body>
 </html>

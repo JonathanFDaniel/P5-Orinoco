@@ -22,18 +22,40 @@
             </div>
             
             <div id="add-basket">
-                <a id="panier" title="panier" href="panier.html">Panier</a>
+                <a id="shopping-basket" title="shopping-basket" href="shopping-basket.html">Panier</a>
             </div>
             
         </nav>
 
-        <h3>Articles</h3>
+        <section>
 
-        <div class="menu little-nav"></div>
+            <h3>Articles</h3>
 
-        <ul id="info"></ul>
+            <div class="menu little-nav"></div>
+
+            <ul id="info"></ul>
 
         </section>
+        <div id="modal">
+
+            <span id="button-close">&times;</span>
+    
+            <h3 id="name" class="product-name"></h3>
+                
+            <div class="article-page">
+                <div class="ordered div-img">
+                    <img id="imageUrl" class="product-image-modal">
+                </div>
+                <div class="ordered div-product">
+                    <p id="lenses"></p>
+                    <p id="description"></p>
+                    <p id="price"></p>
+                </div>
+            </div>
+            <div class="div-add-article">
+                <button id="button-modal" class="button-style">ajouter au panier</button>
+            </div>
+        </div>
         <footer>
             <p>Conditions générales de vente</p>
             <p>Contact</p>
@@ -41,8 +63,7 @@
     </div>
     <script src="https://kit.fontawesome.com/470ee438b3.js" crossorigin="anonymous"></script>
     <script src="ajax.js"></script>
-    <script src="navigateur.js"></script>
-    <script src="add-product.js"></script>
-    <script src="database.js"></script>
+    <script src="nav.js"></script>
+    <script src="info-retrieval.js"></script>
 </body>
 </html>

@@ -88,7 +88,7 @@ if ( result === null ) {
         
             function showProduct(infosProduct) {
             
-                let quantity = 0;//document.getElementById(toto);
+                let quantity = 0;
 
                 if (quantity === 0) {
 
@@ -132,31 +132,28 @@ if ( result === null ) {
                 } else {
                 quantity ++
                 document.getElementById('add-product').textContent = addProductValue;
-
-
-                //let toto = document.getElementById("toto");
-                //consol
-                //toto.textContent = quantity;
                 } 
             } 
              
             result.forEach(information => {
                 showProduct(information);
             });
-        document.getElementById('commande').appendChild(tableElt);  
+        document.getElementById('ordered').appendChild(tableElt);  
 
         document.getElementById("delete").addEventListener("click", () => {
             localStorage.clear();
+            window.location.reload();
         }); 
+        
     }
-
     for (let i = 0; i < result.length; i++) {
         totalAmount += Number(result[i].price); 
-        //quantity += Number(result[i].quantity)
-        //console.log(quantity)
     }  
     let amount = document.getElementsByClassName('amount');  
     amount[0].innerHTML = totalAmount + " €";
-    /*let totalPrise = amount[0].innerHTML;
-    localStorage.setItem('totalPrise', totalPrise); */
+
+    document.getElementById('button').addEventListener('click', () => {
+        let totalPrise = amount[0].innerHTML;
+        localStorage.setItem('totalPrise', totalPrise);    
+    });
 }  

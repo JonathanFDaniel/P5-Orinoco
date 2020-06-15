@@ -22,38 +22,45 @@
 
         <div class="menu little-nav"></div>
 
-        <section class="commande-section">
+        <section class="ordered-section">
             
-            <div class="ordered confirmation">
+            <div class="ordered">
                 <h3>Confirmation de commande</h3>
                 <p id="confirmeName"></p>
+                <p>Votre numéro de commande est le "n"</p>
                 <p>Nous vous remercions de votre commande. Nous vous tiendrons informés pas e-mail lorsque les articles de votre commande auront été expédiés, Votre date de livraison est estimée sous trois jours.</p>
             </div>
 
-            <div class="ordered summary">
-                
+            <div class="ordered">
                 <h3>Récapitulatif</h3>
+                <div class="recap-ordered">
                     <div>
                         <h4>Informations Personnelles</h4>
-                            <p id="name"></p>
-                            <p id="adress"></p>
-                            <p id="city"></p>
-                            <p id="email"></p><br>
+                        <p id="name"></p>
+                        <p id="adress"></p>
+                        <p id="city"></p>
+                        <p id="email"></p><br>
                     </div>    
                     <div>
                         <h4>Récapitulatif articles</h4>
-                            <p id="totalPrise"></p>
+                        <p id="articles"></p>
+                        <p id="totalPrise"></p>
                     </div>
+                </div>    
+            </div>
+
+            <div class="ordered ordered-button">
+                <a href="index.html"><input class="button-style" type="button" value="Retour à la page d'accueil"></a>
             </div> 
         </section>
-        <div class="ordered-button"><a href="index.html"><input class="button-style" type="button" value="Retour à la page d'accueil"></a></div>
+
         <footer>
             <p>Conditions générales de vente</p>
             <p>Contact</p>
         </footer>  
     </div>
     <script src="https://kit.fontawesome.com/470ee438b3.js" crossorigin="anonymous"></script>
-    <script src="navigateur.js"></script>
-    <script src="form-result.js"></script>
+    <script src="nav.js"></script>
+    <script src="order-summary.js"></script>
 </body>
 </html>
