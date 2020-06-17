@@ -1,4 +1,4 @@
-let result = JSON.parse(localStorage.getItem('table')); 
+let result = JSON.parse(localStorage.getItem('products'));
 
 let table = false;
 
@@ -144,15 +144,15 @@ if ( result === null ) {
             localStorage.clear();
             window.location.reload();
         }); 
-        
     }
     for (let i = 0; i < result.length; i++) {
         totalAmount += Number(result[i].price); 
-    }  
+    }      
+
     let amount = document.getElementsByClassName('amount');  
     amount[0].innerHTML = totalAmount + " €";
 
-    document.getElementById('button').addEventListener('click', () => {
+    document.getElementById('order-validate').addEventListener('click', () => {
         let totalPrise = amount[0].innerHTML;
         localStorage.setItem('totalPrise', totalPrise);    
     });

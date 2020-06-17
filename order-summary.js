@@ -1,13 +1,13 @@
-let getArticles = JSON.parse(localStorage.getItem('table'));
-let getForm = JSON.parse(localStorage.getItem('form'));
+let getArticles = JSON.parse(localStorage.getItem('products'));
+let getForm = JSON.parse(localStorage.getItem('localStorageContact'));
 let getTotalPrise = localStorage.getItem('totalPrise');
 
-document.getElementById('confirmeName').innerHTML = "Merci " + getForm[0].name + ".";
+document.getElementById('confirmeName').innerHTML = "Merci " + getForm.firstName + ".";
 
-document.getElementById('name').innerHTML = "<strong>Prénom, Nom : </strong>" + getForm[0].surname + " " + getForm[0].name;
-document.getElementById('adress').innerHTML = "<strong>Adresse : </strong>" + getForm[0].adress;
-document.getElementById('city').innerHTML = "<strong>Ville : </strong>" + getForm[0].city;
-document.getElementById('email').innerHTML = "<strong>Email : </strong>" + getForm[0].email;
+document.getElementById('name').innerHTML = "<strong>Prénom, Nom : </strong>" + getForm.firstName + " " + getForm.lastName;
+document.getElementById('address').innerHTML = "<strong>Adresse : </strong>" + getForm.address;
+document.getElementById('city').innerHTML = "<strong>Ville : </strong>" + getForm.city;
+document.getElementById('email').innerHTML = "<strong>Email : </strong>" + getForm.email;
 
 for (let i = 0; i < getArticles.length; i++) {
     let articles = document.createElement("span");

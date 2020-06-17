@@ -1,13 +1,8 @@
-class infoForm {
-    constructor(surname, name, adress, city, email) {
-        this.surname = surname;
-        this.name = name;
-        this.adress = adress;
-        this.city = city;
-        this.email = email;
-    }
-}
-let tableForm = [];
+let productsResult = JSON.parse(localStorage.getItem('products'));
+
+const product_id = [];
+
+const tableForm = [];
 
 document.getElementById("password").addEventListener("input", (e) => {
     let mdp = e.target.value;
@@ -62,22 +57,39 @@ document.getElementById("inscription").addEventListener("submit", function (e) {
     }
 });
 
-document.getElementById('button').addEventListener('click', () => {
+document.getElementById('order-validate').addEventListener('click', () => {
 
-    let surname1 = document.getElementById('surname').value;
-    let name1 = document.getElementById('name').value;
-    let adress1 = document.getElementById('adress').value;
-    let city1 = document.getElementById('city').value;
-    let email1 = document.getElementById('email').value;
+    for (let i = 0; i < productsResult.length; i++) {
+        product_id.push(productsResult[i]._id);
+    }  
 
-    let newinfoForm = new infoForm (
-        surname1,
-        name1,
-        adress1,
-        city1,
-        email1
-    )
-    tableForm.push(newinfoForm);
-    let jsonTable = JSON.stringify(tableForm);
-    localStorage.setItem('form', jsonTable);
+    let contacts = new Object ()
+        contacts.firstName = document.getElementById('firstName').value;
+        contacts.lastName = document.getElementById('lastName').value;
+        contacts.address = document.getElementById('address').value;
+        contacts.city = document.getElementById('city').value;
+        contacts.email = document.getElementById('email').value;
+
+
+    const orderCameras =  new Object();
+    orderCameras.contact = contacts;
+    orderCameras.products = product_id;
+
+    localStorage.setItem("localStorageContact", JSON.stringify(contacts))
+
+    const orderCamera = JSON.stringify(orderCameras)
+
+    const request = new XMLHttpRequest();
+    request.open("Post", "http://localhost:3000/api/cameras/order");
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    request.send(orderCamera);
+    request.addEventListener("load", function () {
+        if (request.status = 201) {
+            console.log(request);
+        } else {
+            console.log('Bad request!');
+        } 
+    }); 
+
 });
+    

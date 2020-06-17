@@ -87,7 +87,7 @@ function showProduct(infosProduct) {
 
     });
     document.getElementById('button-close').addEventListener("click", () => {
-        modal.style.top = "-900px";
+        modal.style.top = "100%";
     });
 
     let addProduct = () => {
@@ -125,7 +125,7 @@ let httpRequest = new XMLHttpRequest();
     
 document.getElementById('shopping-basket').addEventListener('click', () => {
     let val = JSON.stringify(arrayProduct);
-    localStorage.setItem('table', val);
+    localStorage.setItem('products', val);
     arrayProduct.innerHTML = 0;
 }); 
 

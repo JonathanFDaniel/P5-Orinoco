@@ -190,7 +190,7 @@ li {
     border: 1px solid black;
     margin: 0 20px 20px 0;
     width: 450px;
-	height: 300px;
+	height: auto;
 }
 .image2 {
     border: 1px solid black;
@@ -232,35 +232,34 @@ li {
     justify-content: space-around;
     align-items: center;
 }
-/* .div-add-article {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-} */
 .product-image-list {
+    border-radius: 4px;
+    margin: 20px;
     width: 300px;
     height: auto;
 }
 .product-image-modal {
+    border-radius: 4px;
     width: 500px;
     height: auto;
 }
-.product-description {
-    width: 800px;
-}
+/* .product-description {
+    width: 1000px;
+} */
 #button-close {
     font-size: 3em;
+    margin-right: 30px;
     float: right;
     cursor: pointer;
 }
 #modal {
     font-size: 1.5em;
     padding: 20px;
-    width: 90%;
+    width: 100%;
+    height: 100%;
     background-color: lightgray;
-    position: fixed;
-    top: -900px;
-    left: 5%;
+    position: absolute;
+    top: 100%;
     transition: 0.5s;
 }
 /*article*/
