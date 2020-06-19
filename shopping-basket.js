@@ -85,11 +85,11 @@ if ( result === null ) {
         tableElt.appendChild(tfootElt);   
 
         table = true;
+
+        let quantity = 0;
         
             function showProduct(infosProduct) {
             
-                let quantity = 0;
-
                 if (quantity === 0) {
 
                 quantity ++; 
@@ -98,7 +98,7 @@ if ( result === null ) {
                 trTbodyElt.className = 'recap-tr-tbodyElt';
 
                     const tdTbodyElt1 = document.createElement('img');
-                    tdTbodyElt1.className = 'recap-td-tbody image2';
+                    tdTbodyElt1.className = 'recap-td-tbody image-order-summary';
                     tdTbodyElt1.src = infosProduct.imageUrl;
 
                     const tdTbodyElt2 = document.createElement('td');
@@ -130,9 +130,10 @@ if ( result === null ) {
                     tbodyElt.appendChild(trTbodyElt); 
 
                 } else {
-                quantity ++
-                document.getElementById('add-product').textContent = addProductValue;
-                } 
+                    console.log('ok')
+                
+                //quantity ++;
+                }
             } 
              
             result.forEach(information => {

@@ -1,12 +1,4 @@
-class infoTable {
-    constructor(quantity) {
-        this.quantity = quantity;
-    }
-}
-
 let arrayProduct = [];
-
-let arrayQuantity = [];
 
 function showProduct(infosProduct) {
     
@@ -35,27 +27,13 @@ function showProduct(infosProduct) {
         const addArticleElt = document.createElement('div');
         addArticleElt.className = 'div-add-article';
 
-            /*const divElt3 = document.createElement('div');
-            divElt3.className = 'div_product-list button-div'
- 
-                const quantityElt = document.createElement('div');
-                quantityElt.className = "quantity";
-                quantityElt.textContent = 0;
-
-                const totalPriceElt = document.createElement('div');
-                totalPriceElt.className = "totalPrice";
-                totalPriceElt.textContent = 0; */
-
-                const buttonElt = document.createElement('button');
-                buttonElt.className = "button button-style";
-                buttonElt.textContent = "Ajouter au panier";
+            const buttonElt = document.createElement('button');
+            buttonElt.className = "button button-style";
+            buttonElt.textContent = "Ajouter au panier";
     
     divElt1.appendChild(productImageElt);
     divElt2.appendChild(productNameElt);
     divElt2.appendChild(priceElt);
-/*     divElt3.appendChild(quantityElt);
-    divElt3.appendChild(totalPriceElt); 
-    divElt3.appendChild(buttonElt);*/
 
     consultArticleElt.appendChild(divElt1);
     consultArticleElt.appendChild(divElt2);
@@ -78,7 +56,7 @@ function showProduct(infosProduct) {
 
         let modal = document.getElementById('modal');
 
-        modal.style.top = "0px";
+        modal.style.display = "block";
         document.getElementById('imageUrl').src = infosProduct.imageUrl;
         document.getElementById('name').innerHTML = infosProduct.name;
         document.getElementById('lenses').innerHTML = "<strong>Lentille : </strong>" + infosProduct.lenses;
@@ -87,15 +65,12 @@ function showProduct(infosProduct) {
 
     });
     document.getElementById('button-close').addEventListener("click", () => {
-        modal.style.top = "100%";
+        modal.style.display = "none";
     });
 
     let addProduct = () => {
 
-        //quantityElt.textContent ++;
-
         arrayProduct.push(infosProduct);
-        console.log(arrayProduct)
         if (addProductValue === 0) {
             let addProductElt = document.createElement('span');
             addProductElt.id = "add-product";

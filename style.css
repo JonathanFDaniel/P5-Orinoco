@@ -125,7 +125,7 @@ ul a {
 }
 .menu a {
     display: block;
-    margin-top: 35px;
+    margin: 35px;
     color: #f3e9f1;
 }
 .little-nav {
@@ -146,13 +146,13 @@ h3 {
     border-bottom: 2px solid gray;
 }
 a {
+    margin-left: 10px;
     cursor: pointer;
     text-decoration: none;
     color: black;
 }
 li {
     list-style: none;
-    margin-right: 20px;
     font-size: 1.2em;
 }
 .button-style {
@@ -177,25 +177,18 @@ li {
 }
 /*index*/
 .home-section {
+    height: 100%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     align-items: center;
-    margin: 20px;
-    padding: 10px;
-    width: 100;
-    height: 300px;
+    margin: 40px 0 70px 0;
 }
-.image {
-    border: 1px solid black;
-    margin: 0 20px 20px 0;
+.image-index {
+    border: 2px solid gray;
+    border-radius: 4px;
+    margin: 0 20px 20px 20px;
     width: 450px;
-	height: auto;
-}
-.image2 {
-    border: 1px solid black;
-    margin: 0 20px 20px 0;
-    width: 200px;
 	height: auto;
 }
 /*produit*/
@@ -211,26 +204,28 @@ li {
     height: auto;
 }
 .product-list {
-/*     margin: 50px 200px 70px 200px;
-     */
-    min-width: 500px;
     list-style-type: none;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    box-shadow: 1px 1px 6px silver;
+    margin: 20px;
 }  
 .product-list:hover {
     cursor: pointer;
 }
 .article-information {
     display: flex;
+    flex-wrap: wrap;
     margin: 30px;
-    box-shadow: 1px 1px 6px silver;
     padding: 10px;
     justify-content: space-around;
     align-items: center;
+}
+.div_product-list {
+    width: 130px;
 }
 .product-image-list {
     border-radius: 4px;
@@ -243,9 +238,6 @@ li {
     width: 500px;
     height: auto;
 }
-/* .product-description {
-    width: 1000px;
-} */
 #button-close {
     font-size: 3em;
     margin-right: 30px;
@@ -256,11 +248,12 @@ li {
     font-size: 1.5em;
     padding: 20px;
     width: 100%;
-    height: 100%;
+    height: auto;
     background-color: lightgray;
+    top: 0;
+    bottom: 0;
     position: absolute;
-    top: 100%;
-    transition: 0.5s;
+    display: none;
 }
 /*article*/
 .article-page {
@@ -281,6 +274,10 @@ li {
     width: 1000px;
     margin: 50px auto;
 }
+.image-order-summary {
+    width: 200px;
+	height: auto;
+}
 .recap-th-thead, .recap-td-tbody, .result {
     border: lightgray solid 2px;
     color:#8f5bfe;
@@ -289,11 +286,9 @@ li {
 }
 .shopping-basket-section {
     display: flex;
+    align-items: center;
     flex-direction: column;
     margin: 20px 20px 0 20px;
-}
-.shopping-basket {
-    height: 200px;
 }
 #delete {
     background-color: #8f5bfe;
@@ -302,10 +297,11 @@ li {
 }
 .form-section {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
     margin: 0px 20px 70px 20px;
-    padding: 10px;
+}
+.form {
+    width: 180px;
 }
 .form input {
     display: block;
@@ -338,13 +334,18 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 70px;
+} 
+#div-confirm-ordered {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 .ordered {
-    width: 1000px;
+    margin: 0 30px 0 30px;
+    width: 500px;
     height: auto;
-    padding: 20px;
 }
 .recap-ordered {
     border: gray solid 2px;
@@ -352,6 +353,9 @@ li {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+}
+.recap-ordered-div {
+    margin: 20px;
 }
 .ordered-button {
     text-align: center;
@@ -370,6 +374,9 @@ footer {
 }
 /*media queries*/
 @media screen and (max-width: 1090px) {
+    body {
+        overflow-x: none; 
+    }
     .nav-right {
         display: none; 
     }
@@ -380,7 +387,15 @@ footer {
         display: block;
         position: absolute;
         right: 0;
-  }
+    }
+    .recap-table {
+        width: auto;
+        margin: 0;
+        font-size: 0.8em;
+    }
+    .ordered {
+        width: auto;
+    }
 }
 @media screen and (max-width: 500px) {
     .title-site {
@@ -394,5 +409,13 @@ footer {
     }
     .fa-shopping-cart {
         font-size: 3em;
+    }
+    .image-index {
+        width: 250px;
+    }
+    .recap-table {
+        width: auto;
+        margin: 0;
+        font-size: 0.5em;
     }
 }

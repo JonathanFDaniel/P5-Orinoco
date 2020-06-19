@@ -30,7 +30,7 @@ document.getElementById('password2').addEventListener('input', function() {
     let paragrapheErreur = document.getElementById("message-erreur");
 
     if (this.value != document.getElementById("password").value) {
-        paragrapheErreur.innerHTML = "les deux mots de passe ne correspondent pas !";
+        paragrapheErreur.innerHTML = "mots de passe incorrect !";
     } else {
         paragrapheErreur.innerHTML = "";
     }
