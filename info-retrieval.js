@@ -1,12 +1,13 @@
-let arrayProduct = [];
+let totalAmount = [];
 
 function showProduct(infosProduct) {
     
     const liElt = document.createElement('li');
     liElt.className = 'product-list'
 
-        const consultArticleElt = document.createElement('div');
+        const consultArticleElt = document.createElement('a');
         consultArticleElt.className = 'article-information';
+        consultArticleElt.href = '#modal';
 
             const divElt1 = document.createElement('div');
             divElt1.className = 'div_img-list'
@@ -62,25 +63,12 @@ function showProduct(infosProduct) {
         document.getElementById('lenses').innerHTML = "<strong>Lentille : </strong>" + infosProduct.lenses;
         document.getElementById('description').innerHTML = "<strong>Description : </strong>" + infosProduct.description;
         document.getElementById('price').innerHTML = "<strong>Prix : </strong>" + infosProduct.price + " €";
-
     });
     document.getElementById('button-close').addEventListener("click", () => {
         modal.style.display = "none";
     });
 
-    let addProduct = () => {
-
-        arrayProduct.push(infosProduct);
-        if (addProductValue === 0) {
-            let addProductElt = document.createElement('span');
-            addProductElt.id = "add-product";
-            addProductElt.textContent = addProductValue;
-            document.getElementById('add-basket').appendChild(addProductElt);
-        }
-        addProductValue ++;
-        document.getElementById('add-product').textContent = addProductValue;
-    }
-    buttonElt.addEventListener('click', addProduct);
+    buttonElt.addEventListener('click', e => {addProduct(infosProduct)});
 
 }
 
@@ -90,6 +78,8 @@ let httpRequest = new XMLHttpRequest();
         if (this.readyState === 4 && this.status == 200) {
             const products = JSON.parse(this.responseText);
             products.forEach(information => {
+                information.quantity = 1;
+                information.totalPrixProduct = information.price;
                 showProduct(information);
             });
         }
@@ -98,10 +88,38 @@ let httpRequest = new XMLHttpRequest();
     httpRequest.open('GET', 'http://localhost:3000/api/cameras', true);
     httpRequest.send();
     
-document.getElementById('shopping-basket').addEventListener('click', () => {
-    let val = JSON.stringify(arrayProduct);
-    localStorage.setItem('products', val);
-    arrayProduct.innerHTML = 0;
-}); 
+    let localStorages;
+
+let arrayProduct = [];
 
 let addProductValue = 0;
+
+function addProduct(infosProduct) {
+    const index = arrayProduct.findIndex(item => item._id === infosProduct._id);
+    
+    if (index !== -1) {
+        arrayProduct[index].quantity++;
+        console.log(arrayProduct.price)
+        arrayProduct[index].totalPrixProduct += Number(infosProduct.price); 
+    } else {
+        arrayProduct.push(infosProduct);
+    }
+    console.log(arrayProduct)
+
+    if (addProductValue === 0) {
+        let addProductElt = document.createElement('span');
+        addProductElt.id = "add-product";
+        addProductElt.textContent = addProductValue;
+        document.getElementById('add-basket').appendChild(addProductElt);
+    }
+    addProductValue ++;
+    document.getElementById('add-product').textContent = addProductValue;
+}
+
+document.getElementById('shopping-basket').addEventListener('click', () => {
+    if (localStorages === undefined ) {
+        let val = JSON.stringify(arrayProduct);
+        localStorages = localStorage.setItem('products', val);
+        arrayProduct.innerHTML = 0;
+    }
+}); 

@@ -86,13 +86,8 @@ if ( result === null ) {
 
         table = true;
 
-        let quantity = 0;
         
             function showProduct(infosProduct) {
-            
-                if (quantity === 0) {
-
-                quantity ++; 
 
                 const trTbodyElt = document.createElement('tr');
                 trTbodyElt.className = 'recap-tr-tbodyElt';
@@ -114,12 +109,12 @@ if ( result === null ) {
                     const tdTbodyElt4 = document.createElement('td');
                     tdTbodyElt4.className = 'recap-td-tbody';
                     tdTbodyElt4.id = 'toto';
-                    tdTbodyElt4.textContent = quantity;
+                    tdTbodyElt4.textContent = infosProduct.quantity;
 
                     
                     const tdTbodyElt5 = document.createElement('td');
                     tdTbodyElt5.className = 'recap-td-tbody';
-                    tdTbodyElt5.textContent = infosProduct.price + " €";
+                    tdTbodyElt5.textContent = infosProduct.totalPrixProduct + " €";
         
                     trTbodyElt.appendChild(tdTbodyElt1);    
                     trTbodyElt.appendChild(tdTbodyElt2);    
@@ -128,12 +123,6 @@ if ( result === null ) {
                     trTbodyElt.appendChild(tdTbodyElt5);
 
                     tbodyElt.appendChild(trTbodyElt); 
-
-                } else {
-                    console.log('ok')
-                
-                //quantity ++;
-                }
             } 
              
             result.forEach(information => {

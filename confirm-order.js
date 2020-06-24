@@ -57,7 +57,8 @@ document.getElementById("inscription").addEventListener("submit", function (e) {
     }
 });
 
-document.getElementById('order-validate').addEventListener('click', () => {
+document.getElementById('order-validate').addEventListener('click', (e) => {
+    e.preventDefault();
 
     for (let i = 0; i < productsResult.length; i++) {
         product_id.push(productsResult[i]._id);
@@ -90,6 +91,5 @@ document.getElementById('order-validate').addEventListener('click', () => {
             console.log('Bad request!');
         } 
     }); 
-
 });
     
