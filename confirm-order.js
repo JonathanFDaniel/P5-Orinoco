@@ -57,8 +57,7 @@ document.getElementById("inscription").addEventListener("submit", function (e) {
     }
 });
 
-document.getElementById('order-validate').addEventListener('click', (e) => {
-    e.preventDefault();
+document.getElementById('order-validate').addEventListener('click', () => {
 
     for (let i = 0; i < productsResult.length; i++) {
         product_id.push(productsResult[i]._id);
@@ -85,8 +84,10 @@ document.getElementById('order-validate').addEventListener('click', (e) => {
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     request.send(orderCamera);
     request.addEventListener("load", function () {
-        if (request.status = 201) {
-            console.log(request);
+        if (request.status == 201) {
+            let jsonRequest = JSON.parse(request.responseText);
+            console.log(jsonRequest.orderId);
+            localStorage.setItem("jsonOrderId", jsonRequest.orderId);
         } else {
             console.log('Bad request!');
         } 

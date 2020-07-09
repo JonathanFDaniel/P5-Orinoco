@@ -1,8 +1,9 @@
 let getArticles = JSON.parse(localStorage.getItem('products'));
 let getForm = JSON.parse(localStorage.getItem('localStorageContact'));
 let getTotalPrise = localStorage.getItem('totalPrise');
+let getOrderId = localStorage.getItem('jsonOrderId');
 
-document.getElementById('confirmeName').innerHTML = "Merci " + getForm.firstName + ".";
+document.getElementById('confirmeName').innerHTML = "Merci " + getForm.firstName + ".</br></br>Votre numéro de commande est le : <strong>" + getOrderId + "</strong>";
 
 document.getElementById('name').innerHTML = "<strong>Prénom, Nom : </strong>" + getForm.firstName + " " + getForm.lastName;
 document.getElementById('address').innerHTML = "<strong>Adresse : </strong>" + getForm.address;
