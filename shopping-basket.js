@@ -1,4 +1,5 @@
 let result = JSON.parse(localStorage.getItem('products'));
+console.log(result)
 
 let table = false;
 
@@ -8,7 +9,9 @@ let totalAmount = 0;
 
 let productInList = [];
 
-if ( result === null ) {
+/*tableau récapitulatif*/
+
+if (result.length == 0) {
     document.getElementById('blank').textContent = "votre panier est vide";
 } else { 
     const tableElt = document.createElement('table');
@@ -86,7 +89,8 @@ if ( result === null ) {
 
         table = true;
 
-        
+/*liste d'articles*/
+
             function showProduct(infosProduct) {
 
                 const trTbodyElt = document.createElement('tr');
@@ -96,6 +100,7 @@ if ( result === null ) {
                     tdTbodyElt1.className = 'recap-td-tbody image-order-summary';
                     tdTbodyElt1.src = infosProduct.imageUrl;
 
+
                     const tdTbodyElt2 = document.createElement('td');
                     tdTbodyElt2.className = 'recap-td-tbody';
                     tdTbodyElt2.textContent = infosProduct.name;
@@ -103,12 +108,11 @@ if ( result === null ) {
 
                     const tdTbodyElt3 = document.createElement('td');
                     tdTbodyElt3.className = 'recap-td-tbody';
-                    tdTbodyElt3.textContent = infosProduct.name;
+                    tdTbodyElt3.textContent = infosProduct.lenses[0];
 
 
                     const tdTbodyElt4 = document.createElement('td');
                     tdTbodyElt4.className = 'recap-td-tbody';
-                    tdTbodyElt4.id = 'toto';
                     tdTbodyElt4.textContent = infosProduct.quantity;
 
                     
@@ -135,8 +139,12 @@ if ( result === null ) {
             window.location.reload();
         }); 
     }
+
+/*prix total*/
+
     for (let i = 0; i < result.length; i++) {
-        totalAmount += Number(result[i].price); 
+        console.log(result[0].price);
+        totalAmount += Number(result[i].totalPrixProduct); 
     }      
 
     let amount = document.getElementsByClassName('amount');  

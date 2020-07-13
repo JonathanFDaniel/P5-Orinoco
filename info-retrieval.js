@@ -1,7 +1,5 @@
 let arrayProduct = [];
 
-let totalAmount = [];
-
 /*récupération du panier*/
 
 window.addEventListener('load', () => {
@@ -45,7 +43,7 @@ function showProduct(infosProduct) {
                 priceElt.innerHTML = 'prix : ' + infosProduct.price + ' €';
 
         const addArticleElt = document.createElement('div');
-        addArticleElt.className = 'div-add-article';
+        addArticleElt.className = 'div-add-article div-add-delete';
 
             const buttonElt = document.createElement('button');
             buttonElt.className = "button button-style";
@@ -78,25 +76,7 @@ function showProduct(infosProduct) {
     consultArticleElt.addEventListener('mouseout', () => {
         productNameElt.style.color = "#343a40";
     });
-
-/*fenêtre modale*/
-
-    consultArticleElt.addEventListener('click', () => {
-
-        document.getElementById('button-modal').addEventListener('click', e => {addProduct(infosProduct)});
-
-        let modal = document.getElementById('modal');
-
-        modal.style.display = "block";
-        document.getElementById('imageUrl').src = infosProduct.imageUrl;
-        document.getElementById('name').innerHTML = infosProduct.name;
-        document.getElementById('lenses').innerHTML = "<strong>Lentille : </strong>" + infosProduct.lenses;
-        document.getElementById('description').innerHTML = "<strong>Description : </strong>" + infosProduct.description;
-        document.getElementById('price').innerHTML = "<strong>Prix : </strong>" + infosProduct.price + " €";
-    });
-    document.getElementById('button-close').addEventListener("click", () => {
-        modal.style.display = "none";
-    });
+    consultArticleElt.addEventListener('click', e => {consultProducts(infosProduct)});
 
 /*fonction d'ajout au panier*/
 
@@ -106,21 +86,63 @@ function showProduct(infosProduct) {
 
 }
 
-let httpRequest = new XMLHttpRequest();
-    
-    httpRequest.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status == 200) {
-            const products = JSON.parse(this.responseText);
-            products.forEach(information => {
-                information.quantity = 1;
-                information.totalPrixProduct = information.price;
-                showProduct(information);
-            });
-        }
-    }
+/*fenêtre modale*/
 
-    httpRequest.open('GET', 'http://localhost:3000/api/cameras', true);
-    httpRequest.send();
+function consultProducts(infosProduct) {
+
+    const index = arrayProduct.findIndex(item => item._id === infosProduct._id);
+
+/*     let getOneCamera = function () {
+        ajaxGet("http://localhost:3000/api/cameras")
+        .then(function (response) {
+            let camera = JSON.parse(response);
+            camera.forEach(information => {
+            showProduct(information); 
+            });
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+    console.log(getOneCamera());  */
+    /*modaleProduct = [];
+    modaleProduct.push(infosProduct);
+    console.log(modaleProduct); */
+    
+    document.getElementById('button-modal').addEventListener('click', e => {addProduct(infosProduct)});
+
+    let modal = document.getElementById('modal');
+
+    modal.style.display = "block";
+    document.getElementById('imageUrl').src = infosProduct.imageUrl;
+    document.getElementById('name').innerHTML = infosProduct.name;
+    document.getElementById('lenses1').innerHTML = "Lentille : " + infosProduct.lenses[0];
+    document.getElementById('lenses2').innerHTML = "Lentille : " + infosProduct.lenses[1];
+    document.getElementById('description').innerHTML = "<strong>Description : </strong>" + infosProduct.description;
+    document.getElementById('price').innerHTML = "<strong>Prix : </strong>" + infosProduct.price + " €";
+
+    document.getElementById('button-close').addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+}
+
+/* requête ajax : GET */
+
+let getArticles = function () {
+    ajaxGet("http://localhost:3000/api/cameras")
+    .then(function (response) {
+        let articles = JSON.parse(response);
+        articles.forEach(information => {
+            information.quantity = 1;
+            information.totalPrixProduct = information.price;
+            showProduct(information);
+        });
+    }).catch(function (error) {
+        console.log(error);
+    });
+}
+console.log(getArticles()); 
+
+/*  */
     
 let localStorages;
 
@@ -132,25 +154,15 @@ function addProduct(infosProduct) {
     
     const index = arrayProduct.findIndex(item => item._id === infosProduct._id);
     
-    if (index !== -1) {
+    if (index !== -1) {        
         arrayProduct[index].quantity++;
-        console.log(arrayProduct[index].quantity)
         arrayProduct[index].totalPrixProduct += Number(infosProduct.price); 
     } else {
         arrayProduct.push(infosProduct);
-    }
-    console.log(arrayProduct)
-
-    if (!addProductValue) {
-        let addProductElt = document.createElement('span');
-        addProductElt.id = "add-product";
-        addProductElt.textContent = addProductValue;
-        document.getElementById('add-basket').appendChild(addProductElt);
         document.getElementById('add-product').style.display = "flex"; 
-
     }
     addProductValue ++;
-    document.getElementById('add-product').textContent = addProductValue;
+    document.getElementById('add-product').textContent = addProductValue; 
 }
 
 /*supprimer des articles au panier*/
@@ -163,17 +175,13 @@ function removeProduct(infosProduct) {
             arrayProduct.splice(index, 1);
         } else {
             arrayProduct[index].quantity--;
+            addProductValue --;
+            document.getElementById('add-product').textContent = addProductValue;
         }
-    }
-    if (addProductValue > 0) {
-        addProductValue --;
-        document.getElementById('add-product').textContent = addProductValue;
     }
     if (addProductValue === 0) {
         document.getElementById('add-product').style.display = "none"; 
     }
-
-    console.log(arrayProduct);
 }
 
 document.getElementById('shopping-basket').addEventListener('click', () => {
