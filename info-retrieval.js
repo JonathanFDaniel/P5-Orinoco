@@ -1,5 +1,13 @@
 let arrayProduct = [];
 
+let arrayProductQuantity = [];
+
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+let localStorages;
+
+let totalOrderQuantity = 0;
+
 /*récupération du panier*/
 
 window.addEventListener('load', () => {
@@ -10,7 +18,13 @@ window.addEventListener('load', () => {
     } else {
         for (let i = 0; i < recupLocalStorage.length; i++)  {
             arrayProduct.push(recupLocalStorage[i]);
+            arrayProductQuantity.push(recupLocalStorage[i].quantity);
         } 
+    if (arrayProductQuantity.length > 0) {
+        totalOrderQuantity += arrayProductQuantity.reduce(reducer);
+        document.getElementById('add-product').style.display = "flex";
+        document.getElementById('add-product').textContent = totalOrderQuantity; 
+    }
     localStorage.clear();  
     }
 });
@@ -111,9 +125,15 @@ function consultProducts(infosProduct) {
     document.getElementById('button-modal').addEventListener('click', e => {addProduct(infosProduct)});
 
     let modal = document.getElementById('modal');
+    
+    const camera = new Image();
+    camera.classList = "product-image-modal";
+    camera.src = infosProduct.imageUrl;
+    camera.alt = "camera";
+    document.getElementById('imageUrl').appendChild(camera);
 
-    modal.style.display = "block";
-    document.getElementById('imageUrl').src = infosProduct.imageUrl;
+    modal.style.display = "block";/* 
+    document.getElementById('imageUrl').src = infosProduct.imageUrl; */
     document.getElementById('name').innerHTML = infosProduct.name;
     document.getElementById('lenses1').innerHTML = "Lentille : " + infosProduct.lenses[0];
     document.getElementById('lenses2').innerHTML = "Lentille : " + infosProduct.lenses[1];
@@ -142,12 +162,6 @@ let getArticles = function () {
 }
 console.log(getArticles()); 
 
-/*  */
-    
-let localStorages;
-
-let addProductValue = 0;
-
 /*ajouter des articles au panier*/
 
 function addProduct(infosProduct) {
@@ -161,8 +175,8 @@ function addProduct(infosProduct) {
         arrayProduct.push(infosProduct);
         document.getElementById('add-product').style.display = "flex"; 
     }
-    addProductValue ++;
-    document.getElementById('add-product').textContent = addProductValue; 
+    totalOrderQuantity ++;
+    document.getElementById('add-product').textContent = totalOrderQuantity; 
 }
 
 /*supprimer des articles au panier*/
@@ -172,14 +186,15 @@ function removeProduct(infosProduct) {
 
     if (index > -1) {
         if (arrayProduct[index].quantity === 1) {
+            totalOrderQuantity --;
             arrayProduct.splice(index, 1);
         } else {
             arrayProduct[index].quantity--;
-            addProductValue --;
-            document.getElementById('add-product').textContent = addProductValue;
+            totalOrderQuantity --;
+            document.getElementById('add-product').textContent = totalOrderQuantity;
         }
     }
-    if (addProductValue === 0) {
+    if (totalOrderQuantity === 0) {
         document.getElementById('add-product').style.display = "none"; 
     }
 }

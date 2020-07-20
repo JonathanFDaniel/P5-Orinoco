@@ -171,11 +171,9 @@ li {
     outline: none;
 }
 .button-style:hover {
-    transform: translate();
     box-shadow: 0 3px #8f5bfe9f;
 }
 .button-style:active {
-    transform: translate();
     box-shadow: 0 1px #8f5bfe9f;
 }
 /*index*/
@@ -371,6 +369,7 @@ li {
 }
 .ordered-button {
     text-align: center;
+    margin-top: 20px;
 }
 /*footer*/
 footer {

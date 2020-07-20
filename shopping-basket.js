@@ -1,5 +1,4 @@
 let result = JSON.parse(localStorage.getItem('products'));
-console.log(result)
 
 let table = false;
 
@@ -11,7 +10,7 @@ let productInList = [];
 
 /*tableau récapitulatif*/
 
-if (result.length == 0) {
+if (!result || result.length === 0) {
     document.getElementById('blank').textContent = "votre panier est vide";
 } else { 
     const tableElt = document.createElement('table');
@@ -143,7 +142,6 @@ if (result.length == 0) {
 /*prix total*/
 
     for (let i = 0; i < result.length; i++) {
-        console.log(result[0].price);
         totalAmount += Number(result[i].totalPrixProduct); 
     }      
 
