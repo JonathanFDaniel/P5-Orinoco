@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Orinoco.fr : Le site de vente en ligne</title>
+</head>
+<body>
+    <div class="content">
+
+<!-- menu -->
+        <nav>
+            <a href="product.html"><i id="remove" class="far fa-arrow-alt-circle-left"></i></a>
+            <i class="fas fa-shopping-cart"></i>
+            <div class="nav-left">
+                <h1 class="title-site">Orinoco</h1>
+                <h2 class="subtitle">Le site de vente en ligne</h2>
+            </div>
+            
+            <div class="nav-right"></div>
+            
+            <div class="toggle-button">
+                <span></span>
+            </div>
+            
+            <div id="add-basket">
+                <a id="shopping-basket" title="shopping-basket" href="shopping-basket.html">Panier</a>
+                <span id="add-product"></span>
+            </div>
+            
+        </nav>
+
+        <div class="menu little-nav"></div>
+        
+<!-- page : information sur l'article -->
+        <div>
+    
+            <h3 id="name" class="product-name">""</h3>
+                
+            <div class="article-page">
+
+                <div class="ordered div-img">
+                    <span id="imageUrl"></span>
+                </div>
+
+                <div class="ordered div-product">
+                    
+                    <label><strong>Choose a lenses : </strong></label>
+                    <select name="lenses" class="button-style lenses-select">
+                        <option value="">--Please choose a lenses--</option>
+                        <option value="lenses1" id="lenses1">""</option>
+                        <option value="lenses2" id="lenses2">""</option>
+                    </select>
+
+                    <p id="description"></p>
+                    <p id="price"></p>
+
+                </div>
+
+            </div>
+
+<!-- bouton d'ajout au panier -->
+            <div class="div-add-article">
+                <button id="button-page" class="button-style">ajouter au panier</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Conditions générales de vente</p>
+            <p>Contact</p>
+        </footer>  
+    </div>
+    <script src="https://kit.fontawesome.com/470ee438b3.js" crossorigin="anonymous"></script>
+    <script src="nav.js"></script>
+    <script src="ajax.js"></script>
+    <script src="product-page.js"></script>
+    <script src="localStorage.js"></script>
+</body>
+</html>

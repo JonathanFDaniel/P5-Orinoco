@@ -1,33 +1,6 @@
-let arrayProduct = [];
-
-let arrayProductQuantity = [];
-
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
+let productPage = [];
 
 let localStorages;
-
-let totalOrderQuantity = 0;
-
-/*récupération du panier*/
-
-window.addEventListener('load', () => {
-    let recupLocalStorage = JSON.parse(localStorage.getItem('products'));
-
-    if (!recupLocalStorage) {
-        console.log('panier vide !');
-    } else {
-        for (let i = 0; i < recupLocalStorage.length; i++)  {
-            arrayProduct.push(recupLocalStorage[i]);
-            arrayProductQuantity.push(recupLocalStorage[i].quantity);
-        } 
-    if (arrayProductQuantity.length > 0) {
-        totalOrderQuantity += arrayProductQuantity.reduce(reducer);
-        document.getElementById('add-product').style.display = "flex";
-        document.getElementById('add-product').textContent = totalOrderQuantity; 
-    }
-    localStorage.clear();  
-    }
-});
 
 /*liste d'articles*/
 
@@ -38,7 +11,7 @@ function showProduct(infosProduct) {
 
         const consultArticleElt = document.createElement('a');
         consultArticleElt.className = 'article-information';
-        consultArticleElt.href = '#modal';
+        consultArticleElt.href = 'product-page.html'; 
 
             const divElt1 = document.createElement('div');
             divElt1.className = 'div_img-list'
@@ -82,67 +55,31 @@ function showProduct(infosProduct) {
 
     document.getElementById('info').appendChild(liElt);
 
-/*fonction*/
+/*fonction de consultation de l'article*/
 
     consultArticleElt.addEventListener('mousemove', () => {
         productNameElt.style.color = "#e68a09";
     });
+
     consultArticleElt.addEventListener('mouseout', () => {
         productNameElt.style.color = "#343a40";
     });
-    consultArticleElt.addEventListener('click', e => {consultProducts(infosProduct)});
+    
+    consultArticleElt.addEventListener('click', e => {seeProductPage(infosProduct)}); 
 
-/*fonction d'ajout au panier*/
+/* fonction d'ajout au panier */
 
     buttonElt.addEventListener('click', e => {addProduct(infosProduct)});
 
     buttonRemoveArticle.addEventListener('click', e => {removeProduct(infosProduct)});
 
-}
+    consultArticleElt.addEventListener('click', () => {
+        if (!localStorage.products) {
+            let arrayProductJson = JSON.stringify(arrayProduct);
+            localStorages = localStorage.setItem('products', arrayProductJson);
+        }
+    }); 
 
-/*fenêtre modale*/
-
-function consultProducts(infosProduct) {
-
-    const index = arrayProduct.findIndex(item => item._id === infosProduct._id);
-
-/*     let getOneCamera = function () {
-        ajaxGet("http://localhost:3000/api/cameras")
-        .then(function (response) {
-            let camera = JSON.parse(response);
-            camera.forEach(information => {
-            showProduct(information); 
-            });
-        }).catch(function (error) {
-            console.log(error);
-        });
-    }
-    console.log(getOneCamera());  */
-    /*modaleProduct = [];
-    modaleProduct.push(infosProduct);
-    console.log(modaleProduct); */
-    
-    document.getElementById('button-modal').addEventListener('click', e => {addProduct(infosProduct)});
-
-    let modal = document.getElementById('modal');
-    
-    const camera = new Image();
-    camera.classList = "product-image-modal";
-    camera.src = infosProduct.imageUrl;
-    camera.alt = "camera";
-    document.getElementById('imageUrl').appendChild(camera);
-
-    modal.style.display = "block";/* 
-    document.getElementById('imageUrl').src = infosProduct.imageUrl; */
-    document.getElementById('name').innerHTML = infosProduct.name;
-    document.getElementById('lenses1').innerHTML = "Lentille : " + infosProduct.lenses[0];
-    document.getElementById('lenses2').innerHTML = "Lentille : " + infosProduct.lenses[1];
-    document.getElementById('description').innerHTML = "<strong>Description : </strong>" + infosProduct.description;
-    document.getElementById('price').innerHTML = "<strong>Prix : </strong>" + infosProduct.price + " €";
-
-    document.getElementById('button-close').addEventListener("click", () => {
-        modal.style.display = "none";
-    });
 }
 
 /* requête ajax : GET */
@@ -162,32 +99,32 @@ let getArticles = function () {
 }
 console.log(getArticles()); 
 
-/*ajouter des articles au panier*/
+/* consulter l'article*/
 
-function addProduct(infosProduct) {
+function seeProductPage(infosProduct) {
+
+    const index = productPage.findIndex(item => item._id === infosProduct._id);
     
-    const index = arrayProduct.findIndex(item => item._id === infosProduct._id);
-    
-    if (index !== -1) {        
-        arrayProduct[index].quantity++;
-        arrayProduct[index].totalPrixProduct += Number(infosProduct.price); 
-    } else {
-        arrayProduct.push(infosProduct);
-        document.getElementById('add-product').style.display = "flex"; 
+    if (index == -1) {
+        productPage.push(infosProduct);
+        let productPageJson = JSON.stringify(productPage);
+        localStorages = localStorage.setItem('productPage', productPageJson);
     }
-    totalOrderQuantity ++;
-    document.getElementById('add-product').textContent = totalOrderQuantity; 
 }
+
+
 
 /*supprimer des articles au panier*/
 
 function removeProduct(infosProduct) {
+
     const index = arrayProduct.findIndex(item => item._id === infosProduct._id);
 
     if (index > -1) {
         if (arrayProduct[index].quantity === 1) {
             totalOrderQuantity --;
             arrayProduct.splice(index, 1);
+            document.getElementById('add-product').textContent = totalOrderQuantity;
         } else {
             arrayProduct[index].quantity--;
             totalOrderQuantity --;
@@ -197,11 +134,10 @@ function removeProduct(infosProduct) {
     if (totalOrderQuantity === 0) {
         document.getElementById('add-product').style.display = "none"; 
     }
-}
 
-document.getElementById('shopping-basket').addEventListener('click', () => {
+    localStorage.clear()
     if (!localStorage.products) {
         let arrayProductJson = JSON.stringify(arrayProduct);
         localStorages = localStorage.setItem('products', arrayProductJson);
-    }
-}); 
+    } 
+}
