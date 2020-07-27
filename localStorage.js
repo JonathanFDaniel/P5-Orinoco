@@ -15,10 +15,10 @@ window.addEventListener('load', () => {
             arrayProduct.push(recupLocalStorage[i]);
             arrayProductQuantity.push(recupLocalStorage[i].quantity);
         } 
-    if (arrayProductQuantity.length > 0) {
-        totalOrderQuantity += arrayProductQuantity.reduce(reducer);
-        document.getElementById('add-product').style.display = "flex";
-        document.getElementById('add-product').textContent = totalOrderQuantity; 
+        if (arrayProductQuantity.length > 0) {
+            totalOrderQuantity += arrayProductQuantity.reduce(reducer);
+            document.getElementById('add-product').style.display = "flex";
+            document.getElementById('add-product').textContent = totalOrderQuantity; 
         } 
     }
 });

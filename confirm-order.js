@@ -57,6 +57,8 @@ document.getElementById("inscription").addEventListener("submit", function (e) {
     }
 });
 
+/* valider la commmande */
+
 document.getElementById('order-validate').addEventListener('click', () => {
 
     for (let i = 0; i < productsResult.length; i++) {

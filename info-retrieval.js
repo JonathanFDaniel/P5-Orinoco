@@ -65,21 +65,15 @@ function showProduct(infosProduct) {
         productNameElt.style.color = "#343a40";
     });
     
-    consultArticleElt.addEventListener('click', e => {seeProductPage(infosProduct)}); 
+    consultArticleElt.addEventListener('click', e => {
+        localStorage.setItem("productPage", JSON.stringify(infosProduct));
+    }); 
 
 /* fonction d'ajout au panier */
 
     buttonElt.addEventListener('click', e => {addProduct(infosProduct)});
 
     buttonRemoveArticle.addEventListener('click', e => {removeProduct(infosProduct)});
-
-    consultArticleElt.addEventListener('click', () => {
-        if (!localStorage.products) {
-            let arrayProductJson = JSON.stringify(arrayProduct);
-            localStorages = localStorage.setItem('products', arrayProductJson);
-        }
-    }); 
-
 }
 
 /* requête ajax : GET */
@@ -98,21 +92,6 @@ let getArticles = function () {
     });
 }
 console.log(getArticles()); 
-
-/* consulter l'article*/
-
-function seeProductPage(infosProduct) {
-
-    const index = productPage.findIndex(item => item._id === infosProduct._id);
-    
-    if (index == -1) {
-        productPage.push(infosProduct);
-        let productPageJson = JSON.stringify(productPage);
-        localStorages = localStorage.setItem('productPage', productPageJson);
-    }
-}
-
-
 
 /*supprimer des articles au panier*/
 

@@ -1,3 +1,5 @@
+/* afficher le résumé de la commande */
+
 let getArticles = JSON.parse(localStorage.getItem('products'));
 let getForm = JSON.parse(localStorage.getItem('localStorageContact'));
 let getTotalPrise = localStorage.getItem('totalPrise');
@@ -16,3 +18,7 @@ for (let i = 0; i < getArticles.length; i++) {
     document.getElementById('articles').appendChild(articles); 
 }
 document.getElementById('totalPrise').innerHTML = "<strong>Prix Total : </strong>" + getTotalPrise; 
+
+document.getElementById('back-button').addEventListener("click", () => { 
+    localStorage.clear();
+});
